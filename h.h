@@ -214,7 +214,7 @@
 // ------------------------- Operators (prefix hh_) ------------------------- >>
 #define hh_h +
 #define hh_H -
-// Operators -- and ++ can be made using h(hh_h, hh_h) and h(hh_H, hh_H)
+// Operators -- and ++ can be made using HH_H(hh_h, hh_h) and HH_H(hh_H, hh_H)
 #define hh_Hh  *
 #define hh_HH  /
 #define hh_Hhh %
@@ -234,11 +234,11 @@
 // Identity
 #define HH_h(h) h
 
-// Token pasting (use h, not h_)
+// Token pasting (use HH_H, not HH_H_)
 #define HH_H_(h, hh) h##hh
 #define HH_H(h, hh)  HH_H_(h, hh)
 
-// Stringize
+// Stringize (use HH_hh, not HH_hh_)
 #define HH_hh_(h) #h
 #define HH_hh(h)  HH_hh_(h)
 
