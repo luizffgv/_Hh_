@@ -1,0 +1,36 @@
+name: Build Examples (Ubuntu, gcc-11)
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'h.h'
+      - 'examples/**.c'
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
+    - name: Install GCC 11
+      uses: egor-tensin/setup-gcc@v1
+      with:
+        version: 11
+        platform: x64
+
+    - name: Get specific changed files
+      id: changed-files
+      uses: tj-actions/changed-files@v11.5
+      with:
+        files: \.c$
+
+    - name: Build
+      run: for SOURCEFILE in  ${{steps.changed-files.outputs.all_modified_files}}; do gcc-11 -I. $SOURCEFILE; done
