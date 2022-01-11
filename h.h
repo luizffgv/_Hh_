@@ -227,7 +227,7 @@
 #define hH_hh {
 #define hH_HH }
 #define hH_hhh [
-#define hH_HHH [
+#define hH_HHH ]
 
 // ----------------------- Utility macros (prefix HH_) ---------------------- >>
 
